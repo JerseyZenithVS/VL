@@ -4,34 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Valentine Portrait</title>
-<audio id="bgMusic" autoplay loop muted>
-    <source src="assets/song.mp3" type="audio/mpeg">
-</audio>
 
-<script>
-const music = document.getElementById("bgMusic");
-
-// Fade in volume
-function fadeIn(audio) {
-    let volume = 0;
-    audio.volume = 0;
-    const fade = setInterval(() => {
-        if (volume < 0.5) {
-            volume += 0.02;
-            audio.volume = volume;
-        } else {
-            clearInterval(fade);
-        }
-    }, 200);
-}
-
-// Enable sound on first interaction (mobile safe)
-document.body.addEventListener("click", () => {
-    music.muted = false;
-    music.play();
-    fadeIn(music);
-}, { once: true });
-</script>
 <style>
 body {
     margin: 0;
@@ -44,7 +17,6 @@ body {
     font-family: monospace;
 }
 
-/* Responsive Container */
 .wrapper {
     width: 90vw;
     max-width: 500px;
@@ -52,29 +24,23 @@ body {
     position: relative;
 }
 
-/* Image masked text */
 .text-portrait {
     width: 100%;
     height: 100%;
     background-image: url("assets/image.jpg");
     background-size: cover;
     background-position: center;
-
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-
     font-size: clamp(6px, 1.6vw, 8px);
     line-height: clamp(6px, 1.6vw, 8px);
     letter-spacing: 1px;
-
     white-space: pre-wrap;
     text-align: justify;
-
     filter: brightness(1.15) contrast(1.35);
 }
 
-/* Subtle Embedded Phrase */
 .hidden-valentine {
     font-weight: bold;
     letter-spacing: 2px;
@@ -82,20 +48,18 @@ body {
     opacity: 0.95;
 }
 
-/* Extra polish for very small phones */
 @media (max-width: 400px) {
     .text-portrait {
         font-size: 5.5px;
         line-height: 5.5px;
     }
 }
-
 </style>
 </head>
+
 <body>
 
 <div class="wrapper">
-
 <div class="text-portrait">
 Will you be my valentine forever and always my love you are my favorite person 
 you make my world brighter every smile every laugh every moment with you is magic
@@ -169,10 +133,48 @@ i choose you today tomorrow and always i love you endlessly you are my heart
 will you be my valentine forever and always my love you are my favorite person
 you make my world brighter every smile every laugh every moment with you is magic
 i choose you today tomorrow and always i love you endlessly you are my heart
-</div>
+Will you be my valentine forever and always my love you are my favorite person 
+you make my world brighter every smile every laugh every moment with you is magic
+i choose you today tomorrow and always i love you endlessly you are my heart
+will you be my valentine forever and always my love you are my favorite person
+you make my world brighter every smile every laugh every moment with you is magic
+i choose you today tomorrow and always i love you endlessly you are my heart
+will you be my valentine forever and always my love you are my favorite person
+you make my world brighter every smile every laugh every moment with you is magic
+i choose you today tomorrow and always i love you endlessly you are my heart
+will you be my valentine forever and always my love you are my favorite person
+you make my world brighter every smile every laugh every moment with you is magic
+i choose you today tomorrow and always i love you endlessly you are my heart
 
 </div>
+</div>
+
+<audio id="bgMusic" autoplay loop muted>
+<source src="assets/song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+
+function fadeIn(audio) {
+    let volume = 0;
+    audio.volume = 0;
+    const fade = setInterval(() => {
+        if (volume < 0.5) {
+            volume += 0.02;
+            audio.volume = volume;
+        } else {
+            clearInterval(fade);
+        }
+    }, 200);
+}
+
+document.body.addEventListener("click", () => {
+    music.muted = false;
+    music.play();
+    fadeIn(music);
+}, { once: true });
+</script>
 
 </body>
 </html>
-
